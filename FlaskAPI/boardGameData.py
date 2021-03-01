@@ -1,13 +1,13 @@
 import requests
 import random
-client_id = 'Q0gY3mITdP'
 
 def get_boardgames(game_params):
     max_players = game_params['max_players']
     max_playtime = game_params['max_playtime']
     min_rating = game_params['min_rating']
 
-    atlasURL = 'https://api.boardgameatlas.com/api/search?player_counts={max_players}&lt_max_playtime={max_playtime}&client_id={client_id}'
+    atlasURL = 'https://api.boardgameatlas.com/api/search?player_counts=' + max_players + \
+        '&lt_max_playtime=' + max_playtime + '&client_id=Q0gY3mITdP'
     atlasResponse = requests.get(atlasURL)
     atlasJson = atlasResponse.json()
     

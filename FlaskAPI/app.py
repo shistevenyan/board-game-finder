@@ -7,7 +7,6 @@ CORS(app, support_credentials=True)
 
 @app.route('/boardgame-result', methods=['GET'])
 @cross_origin(support_credentials=True)
-
 def boardgame_result():
     if request.method == "GET":
         game_params = {}
