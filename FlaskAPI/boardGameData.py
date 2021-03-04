@@ -1,5 +1,4 @@
 import requests
-import random
 
 def get_boardgames(game_params):
     max_players = game_params['max_players']
@@ -14,11 +13,39 @@ def get_boardgames(game_params):
     
     results = {}
     for game in atlasJson['games']:
+        players = ""
+        playtime = ""
+        rating = 0.0
+        if game['min_players'] == game['max_players']:
+            players = str(game['min_players'])
+        else:
+            players = str(game['min_players']) + "-" + str(game['max_players'])
+
+        if game['min_playtime'] == game['max_playtime']:
+            playtime = str(game['min_playtime'])
+        else:
+            playtime = str(game['min_playtime']) + "-" + str(game['max_playtime'])
+
+        rating = round_rating(game['average_user_rating'])
+
         results[game['name']] = {
-            'min_players': game['min_players'],
-            'max_players': game['max_players'],
-            'min_playtime': game['min_playtime'],
-            'max_playtime': game['max_playtime'],
-            'rating': game['average_user_rating']
+            'players': players,
+            'playtime': playtime,
+            'rating': rating
             }
     return results
+
+
+def round_rating(number):
+    """Round a number to the closest half integer.
+    >>> round_of_rating(1.3)
+    1.5
+    >>> round_of_rating(2.6)
+    2.5
+    >>> round_of_rating(3.0)
+    3.0
+    >>> round_of_rating(4.1)
+    4.0"""
+
+    return round(number * 2) / 2
+
