@@ -5,7 +5,6 @@ from boardGameData import *
 app = Flask(__name__)
 CORS(app, support_credentials=True)
 
-
 @app.route('/boardgame-result', methods=['GET'])
 @cross_origin(support_credentials=True)
 def boardgame_result():
@@ -21,6 +20,8 @@ def boardgame_result():
             return get_boardgames(game_params)
         return {"results": [], "error_msg": "Bad data"}, 400
 
-
+if __name__ == '__main__':
+    app.run(debug=True)
+=======
 if __name__ == '__main__':
     app.run(debug=True)

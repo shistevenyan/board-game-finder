@@ -48,3 +48,4 @@ def round_rating(number):
     4.0"""
 
     return round(number * 2) / 2
+
