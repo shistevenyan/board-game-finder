@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
         marginBottom: 70,
         textAlign: 'center',
         fontFamily: "Inter_400Regular",
-        fontWeight: "400",
     },
 
     button: {
