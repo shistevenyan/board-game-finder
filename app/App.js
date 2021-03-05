@@ -3,11 +3,12 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Home from './components/Home';
 import Player from './components/Player';
+import Time from './components/Time';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Player />
+      <Time />
       <StatusBar style="auto" />
     </View>
   );
