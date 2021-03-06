@@ -15,9 +15,10 @@ const Player = ({ navigation }) => {
     if (!fontsLoaded) {
         return <AppLoading />;
     }
-
+    const gameParams = {};
     const options = ['1','2','3','4','5','6','7','8','9+'];
     const nextRoute = "Time";
+    const currentPage = "Players";
     return (
         <View style={styles.container}>
             <Text style={styles.content}>
@@ -25,8 +26,13 @@ const Player = ({ navigation }) => {
             </Text>
             <Image source={PeopleLogo} style={styles.logo} />
 
-            <Buttons options={options} nextRoute={nextRoute} navigation={navigation}/>
-
+            <Buttons
+                gameParams={gameParams}
+                currentPage={currentPage}
+                options={options}
+                nextRoute={nextRoute}
+                navigation={navigation}
+            />
 
             <View style={styles.navRow }>
                 <Button

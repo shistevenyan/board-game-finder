@@ -4,13 +4,15 @@ import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Buttons = ({ navigation, options, nextRoute }) => {
+const Buttons = ({ navigation, options, nextRoute, currentPage, gameParams}) => {
     const buttonOptions = options;
     const route = nextRoute;
     const [activeOption, setActiveOption] = useState()
+    const [gameParams] = useState(gameParams);
     
     const updateActiveOption = (option) => {
         setActiveOption(option)
+        gameParams[currentPage] = option;
     }
 
     return (
@@ -46,7 +48,7 @@ const Buttons = ({ navigation, options, nextRoute }) => {
                 <Button
                     buttonStyle={styles.navButton}
                     titleStyle={styles.navTitle}
-                    onPress={() => navigation.navigate(route)}
+                    onPress={() => navigation.navigate(route, gameParams)}
                     icon={
                         <Icon
                             name="navigate-next"

@@ -6,7 +6,11 @@ import { Button } from 'react-native-elements';
 import TimeLogo from '../assets/time.png';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Time = () => {
+const Time = ({navigation, route}) => {
+    const gameParams = route;
+    const currentPage = "Time";
+    const nextRoute = "Rating";
+    const options = ['15','30','45','60','90','120','120+'];
     let [fontsLoaded] = useFonts({
         Inter_400Regular,
     });
@@ -21,44 +25,32 @@ const Time = () => {
                 How much <Text style={{ fontStyle: 'italic' }}>Time</Text> (minutes) do you have?
             </Text>
             <Image source={TimeLogo} style={styles.logo} />
+            
+            <Buttons
+                gameParams={gameParams}
+                currentPage={currentPage}
+                options={options}
+                nextRoute={nextRoute}
+                navigation={navigation}
+            />
 
-            <View style={styles.buttonRow}>
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="15"
-                    type="outline"
+            <View style={styles.navRow }>
+                <Button
+                    buttonStyle={styles.navButton}
+                    titleStyle={styles.navTitle}
+                    onPress= {() => navigation.goBack()}
+                    icon={
+                        <Icon
+                            name="navigate-before"
+                            size={25}
+                            color="white"
+                        />
+                    }
+                    iconLeft
+                    title="Back"
                 />
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="30"
-                    type="outline"
-                />
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="45"
-                    type="outline"
-                />
+                
             </View>
-
-            <View style={styles.buttonRow}>
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="60"
-                    type="outline"
-                />
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="90"
-                    type="outline"
-                />
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="120"
-                    type="outline"
-                />
-            </View>
-
-            <View style={styles.buttonRow}>
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="120+"
-                    type="outline"
-                />
-            </View>
-
             <View style={styles.navRow}>
                 <Button
                     buttonStyle={styles.navButton}
@@ -72,20 +64,6 @@ const Time = () => {
                     }
                     iconLeft
                     title="Back"
-                />
-
-                <Button
-                    buttonStyle={styles.navButton}
-                    titleStyle={styles.navTitle}
-                    icon={
-                        <Icon
-                            name="navigate-next"
-                            size={25}
-                            color="white"
-                        />
-                    }
-                    iconRight
-                    title="Next"
                 />
             </View>
 
