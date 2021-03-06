@@ -3,15 +3,15 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter';
 import { Button } from 'react-native-elements';
-import TimeLogo from '../assets/time.png';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Buttons from './Buttons';
 
-const Time = ({navigation, route}) => {
+const Time = ({ navigation, route }) => {
     const gameParams = route;
-    const currentPage = "Time";
-    const nextRoute = "Rating";
-    const options = ['15','30','45','60','90','120','120+'];
+    const currentPage = "Rating";
+    const nextRoute = "Results";
+
+    const options = ['15', '30', '45', '60', '90', '120', '120+'];
     let [fontsLoaded] = useFonts({
         Inter_400Regular,
     });
@@ -23,10 +23,9 @@ const Time = ({navigation, route}) => {
     return (
         <View style={styles.container}>
             <Text style={styles.content}>
-                How much <Text style={{ fontStyle: 'italic' }}>Time</Text> (minutes) do you have?
+                Minimum <Text style={{ fontStyle: 'italic' }}>Rating</Text> of the board game?
             </Text>
-            <Image source={TimeLogo} style={styles.logo} />
-            
+
             <Buttons
                 gameParams={gameParams}
                 currentPage={currentPage}
@@ -35,11 +34,11 @@ const Time = ({navigation, route}) => {
                 navigation={navigation}
             />
 
-            <View style={styles.navRow }>
+            <View style={styles.navRow}>
                 <Button
                     buttonStyle={styles.navButton}
                     titleStyle={styles.navTitle}
-                    onPress= {() => navigation.goBack()}
+                    onPress={() => navigation.goBack()}
                     icon={
                         <Icon
                             name="navigate-before"
@@ -50,7 +49,7 @@ const Time = ({navigation, route}) => {
                     iconLeft
                     title="Back"
                 />
-                
+
             </View>
         </View>
     );

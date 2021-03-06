@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Home from './components/Home';
 import Player from './components/Player';
 import Time from './components/Time';
+import Rating from './components/Rating';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -16,6 +17,7 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Player" component={Player} />
         <Stack.Screen name="Time" component={Time} />
+        <Stack.Screen name="Rating" component={Rating} />
       </Stack.Navigator>
     </NavigationContainer>
   );

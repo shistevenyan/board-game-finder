@@ -8,11 +8,11 @@ const Buttons = ({ navigation, options, nextRoute, currentPage, gameParams}) => 
     const buttonOptions = options;
     const route = nextRoute;
     const [activeOption, setActiveOption] = useState()
-    const [gameParams] = useState(gameParams);
+    let gameState = gameParams;
     
     const updateActiveOption = (option) => {
         setActiveOption(option)
-        gameParams[currentPage] = option;
+        gameState[currentPage] = option;
     }
 
     return (
@@ -48,7 +48,7 @@ const Buttons = ({ navigation, options, nextRoute, currentPage, gameParams}) => 
                 <Button
                     buttonStyle={styles.navButton}
                     titleStyle={styles.navTitle}
-                    onPress={() => navigation.navigate(route, gameParams)}
+                    onPress={() => navigation.navigate(route, gameState)}
                     icon={
                         <Icon
                             name="navigate-next"
