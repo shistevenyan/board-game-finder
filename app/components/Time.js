@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter';
 import { Button } from 'react-native-elements';
-import PeopleLogo from '../assets/time.png';
+import TimeLogo from '../assets/time.png';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Time = () => {
@@ -20,7 +20,7 @@ const Time = () => {
             <Text style={styles.content}>
                 How much <Text style={{ fontStyle: 'italic' }}>Time</Text> (minutes) do you have?
             </Text>
-            <Image source={PeopleLogo} style={styles.logo} />
+            <Image source={TimeLogo} style={styles.logo} />
 
             <View style={styles.buttonRow}>
                 <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}

@@ -8,19 +8,12 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Buttons from './Buttons';
 
 const Player = () => {
-    const [activeOptionChosen, setActiveOptionChosen] = useState('testing');
-
     let [fontsLoaded] = useFonts({
         Inter_400Regular,
     });
 
     if (!fontsLoaded) {
         return <AppLoading />;
-    }
-
-    const setActiveRef = (event) => {
-        console.log(event)
-        setActiveOptionChosen('wee')
     }
 
     const options = ['1','2','3','4','5','6','7','8','9+'];
@@ -31,8 +24,9 @@ const Player = () => {
             </Text>
             <Image source={PeopleLogo} style={styles.logo} />
 
-            <Text>{activeOptionChosen}</Text>
-            <Buttons setActiveRef={setActiveRef} options={options}/>
+            <Buttons options={options}/>
+
+
             <View style={styles.navRow }>
                 <Button
                     buttonStyle={styles.navButton}
@@ -47,20 +41,7 @@ const Player = () => {
                     iconLeft
                     title="Back"
                 />
-
-                <Button
-                    buttonStyle={styles.navButton}
-                    titleStyle={styles.navTitle}
-                    icon={
-                        <Icon
-                            name="navigate-next"
-                            size={25}
-                            color="white"
-                        />
-                    }
-                    iconRight
-                    title="Next"
-                />
+                
             </View>
             
         </View>

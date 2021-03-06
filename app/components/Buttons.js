@@ -1,24 +1,25 @@
 import React, {useCallback, useState, useRef } from 'react';
 import { TouchableHighlight } from 'react-native';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import { Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Buttons = ({options, setActiveRef}) => {
+const Buttons = ({options}) => {
     const buttonOptions = options;
     const [activeOption, setActiveOption] = useState()
     
-    const updateActiveOption = (event) => {
-        setActiveOption(event.target.innerText)
-        setActiveRef(event.target.innerText)
+    const updateActiveOption = (option) => {
+        setActiveOption(option)
     }
 
     return (
         <View style={styles.ButtonContainer}>
             {buttonOptions.map((option, index) => {
                 return (
-                    <TouchableHighlight
-                    ref={setActiveRef}
+                    <TouchableOpacity
+                        style={{ backgroundColor: activeOption === option ? "#FF6767" : 'white'}}
                     key={index}
-                    onPress={(event) => updateActiveOption(event)} >
+                    onPress={() => updateActiveOption(option)} >
                         <Text
                         style={{
                             width: 75,
@@ -32,23 +33,55 @@ const Buttons = ({options, setActiveRef}) => {
                             alignContent: 'center',
                             borderColor: "#FF6767",
                             fontSize: 25,
-                            backgroundColor: activeOption === option ? "#FF6767" : 'white',
-                            color: activeOption === option ? 'black' : "#FF6767",
+                            color: activeOption === option ? 'white' : "#FF6767",
                             
                         }}>
                             {option}
                         </Text>
-                    </TouchableHighlight>
+                    </TouchableOpacity>
                 )
             })}
+            {activeOption ? 
+                <Button
+                    buttonStyle={styles.navButton}
+                    titleStyle={styles.navTitle}
+                    icon={
+                        <Icon
+                            name="navigate-next"
+                            size={25}
+                            color="white"
+                        />
+                    }
+                    iconRight
+                    title="Next"
+                />
+                :
+                null }
         </View>
     )
 }
-const styles = StyleSheet.create({
-    ButtonContainer: {
-       flexDirection: 'row',
-       flexWrap: 'wrap',
-       justifyContent: 'center',
-    },
-})
+
 export default Buttons;
+
+const styles = StyleSheet.create({
+
+    ButtonContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+    },
+    navButton: {
+        backgroundColor: "#FF6767",
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 55,
+        marginRight: 55,
+        borderRadius: 60,
+        width: 100,
+        height: 45,
+    },
+
+    navTitle: {
+        fontFamily: "Inter_400Regular",
+    }
+})
