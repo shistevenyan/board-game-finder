@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter';
 import { Button } from 'react-native-elements';
 import PeopleLogo from '../assets/people.png'; 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Buttons from './Buttons';
 
 const Player = () => {
+    const [activeOptionChosen, setActiveOptionChosen] = useState('testing');
+
     let [fontsLoaded] = useFonts({
         Inter_400Regular,
     });
@@ -15,6 +18,12 @@ const Player = () => {
         return <AppLoading />;
     }
 
+    const setActiveRef = (event) => {
+        console.log(event)
+        setActiveOptionChosen('wee')
+    }
+
+    const options = ['1','2','3','4','5','6','7','8','9+'];
     return (
         <View style={styles.container}>
             <Text style={styles.content}>
@@ -22,51 +31,8 @@ const Player = () => {
             </Text>
             <Image source={PeopleLogo} style={styles.logo} />
 
-            <View style={styles.buttonRow}>
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="1"
-                    type="outline"
-                />
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="2"
-                    type="outline"
-                />
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="3"
-                    type="outline"
-                />
-            </View>
-
-            <View style={styles.buttonRow}>
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="4"
-                    type="outline"
-                />
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="5"
-                    type="outline"
-                />
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="6"
-                    type="outline"
-                />
-            </View>
-
-            <View style={styles.buttonRow}>
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="7"
-                    type="outline"
-                />
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="8"
-                    type="outline"
-                />
-                <Button buttonStyle={styles.buttonStyle} titleStyle={styles.titleStyle}
-                    title="9+"
-                    type="outline"
-                />
-            </View>
-
+            <Text>{activeOptionChosen}</Text>
+            <Buttons setActiveRef={setActiveRef} options={options}/>
             <View style={styles.navRow }>
                 <Button
                     buttonStyle={styles.navButton}

@@ -8,7 +8,7 @@ import Time from './components/Time';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Time />
+      <Player />
       <StatusBar style="auto" />
     </View>
   );
