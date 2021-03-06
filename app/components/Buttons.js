@@ -4,8 +4,9 @@ import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Buttons = ({options}) => {
+const Buttons = ({ navigation, options, nextRoute }) => {
     const buttonOptions = options;
+    const route = nextRoute;
     const [activeOption, setActiveOption] = useState()
     
     const updateActiveOption = (option) => {
@@ -45,6 +46,7 @@ const Buttons = ({options}) => {
                 <Button
                     buttonStyle={styles.navButton}
                     titleStyle={styles.navTitle}
+                    onPress={() => navigation.navigate(route)}
                     icon={
                         <Icon
                             name="navigate-next"

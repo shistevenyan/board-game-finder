@@ -8,7 +8,7 @@ import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 // Name of component
-const Home = () => {
+const Home = ({ navigation }) => {
     // Logic for components can go in here.
     let [fontsLoaded] = useFonts({
         Inter_400Regular,
@@ -32,6 +32,7 @@ const Home = () => {
             <Button
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonTitle}
+                onPress={() => navigation.navigate('Player')}
                 icon={
                     <Icon
                         name="navigate-next"

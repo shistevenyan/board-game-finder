@@ -7,7 +7,7 @@ import PeopleLogo from '../assets/people.png';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Buttons from './Buttons';
 
-const Player = () => {
+const Player = ({ navigation }) => {
     let [fontsLoaded] = useFonts({
         Inter_400Regular,
     });
@@ -17,6 +17,7 @@ const Player = () => {
     }
 
     const options = ['1','2','3','4','5','6','7','8','9+'];
+    const nextRoute = "Time";
     return (
         <View style={styles.container}>
             <Text style={styles.content}>
@@ -24,13 +25,14 @@ const Player = () => {
             </Text>
             <Image source={PeopleLogo} style={styles.logo} />
 
-            <Buttons options={options}/>
+            <Buttons options={options} nextRoute={nextRoute} navigation={navigation}/>
 
 
             <View style={styles.navRow }>
                 <Button
                     buttonStyle={styles.navButton}
                     titleStyle={styles.navTitle}
+                    onPress= {() => navigation.goBack()}
                     icon={
                         <Icon
                             name="navigate-before"
