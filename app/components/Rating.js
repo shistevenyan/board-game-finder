@@ -1,61 +1,9 @@
-import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Buttons from './Buttons';
-
-const Time = ({ navigation, route }) => {
-    const gameParams = route;
-    const currentPage = "Rating";
-    const nextRoute = "Results";
-
-    const options = ['15', '30', '45', '60', '90', '120', '120+'];
-    let [fontsLoaded] = useFonts({
-        Inter_400Regular,
-    });
-
-    if (!fontsLoaded) {
-        return <AppLoading />;
-    }
-
-    return (
-        <View style={styles.container}>
-            <Text style={styles.content}>
-                Minimum <Text style={{ fontStyle: 'italic' }}>Rating</Text> of the board game?
-            </Text>
-
-            <Buttons
-                gameParams={gameParams}
-                currentPage={currentPage}
-                options={options}
-                nextRoute={nextRoute}
-                navigation={navigation}
-            />
-
-            <View style={styles.navRow}>
-                <Button
-                    buttonStyle={styles.navButton}
-                    titleStyle={styles.navTitle}
-                    onPress={() => navigation.goBack()}
-                    icon={
-                        <Icon
-                            name="navigate-before"
-                            size={25}
-                            color="white"
-                        />
-                    }
-                    iconLeft
-                    title="Back"
-                />
-
-            </View>
-        </View>
-    );
-}
-
-export default Time;
 
 const styles = StyleSheet.create({
     container: {
@@ -123,5 +71,166 @@ const styles = StyleSheet.create({
 
     navTitle: {
         fontFamily: "Inter_400Regular",
-    }
+    },
 });
+const Rating = ({ navigation, route }) => {
+    const [fontsLoaded] = useFonts({
+        Inter_400Regular,
+    });
+    let gameParams = route;
+    const currentPage = "Rating";
+    const nextRoute = "Results";
+    const [ activeOption, setActiveOption ] = useState()
+
+    const updateActiveOption = (option) => {
+        setActiveOption(option)
+        gameParams[currentPage] = option;
+    }
+
+    if (!fontsLoaded) {
+        return <AppLoading />;
+    }
+
+    return (
+        <View style={styles.container}>
+            <Text style={styles.content}>
+                Minimum <Text style={{ fontStyle: 'italic' }}>Rating</Text> of the board game?
+            </Text>
+            <TouchableOpacity
+              onPress={updateActiveOption}>
+                <Text
+                style={{
+                    width: 75,
+                    height: 80,
+                    paddingTop: 20,
+                    marginRight: 20,
+                    marginLeft: 20,
+                    marginTop: 20,
+                    borderWidth: 1,
+                    textAlign: 'center',
+                    alignContent: 'center',
+                    borderColor: "#FF6767",
+                    fontSize: 25,
+                    
+                }}>
+                    1
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={updateActiveOption}>
+                <Text
+                style={{
+                    width: 75,
+                    height: 80,
+                    paddingTop: 20,
+                    marginRight: 20,
+                    marginLeft: 20,
+                    marginTop: 20,
+                    borderWidth: 1,
+                    textAlign: 'center',
+                    alignContent: 'center',
+                    borderColor: "#FF6767",
+                    fontSize: 25,
+                    
+                }}>
+                    2
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={updateActiveOption}>
+                <Text
+                style={{
+                    width: 75,
+                    height: 80,
+                    paddingTop: 20,
+                    marginRight: 20,
+                    marginLeft: 20,
+                    marginTop: 20,
+                    borderWidth: 1,
+                    textAlign: 'center',
+                    alignContent: 'center',
+                    borderColor: "#FF6767",
+                    fontSize: 25,
+                    
+                }}>
+                    3
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={updateActiveOption}>
+                <Text
+                style={{
+                    width: 75,
+                    height: 80,
+                    paddingTop: 20,
+                    marginRight: 20,
+                    marginLeft: 20,
+                    marginTop: 20,
+                    borderWidth: 1,
+                    textAlign: 'center',
+                    alignContent: 'center',
+                    borderColor: "#FF6767",
+                    fontSize: 25,
+                    
+                }}>
+                    4
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={updateActiveOption}>
+                <Text
+                style={{
+                    width: 75,
+                    height: 80,
+                    paddingTop: 20,
+                    marginRight: 20,
+                    marginLeft: 20,
+                    marginTop: 20,
+                    borderWidth: 1,
+                    textAlign: 'center',
+                    alignContent: 'center',
+                    borderColor: "#FF6767",
+                    fontSize: 25,
+                    
+                }}>
+                    5
+                </Text>
+            </TouchableOpacity>
+            <View style={styles.navRow }>
+                <Button
+                    buttonStyle={styles.navButton}
+                    titleStyle={styles.navTitle}
+                    onPress= {() => navigation.goBack()}
+                    icon={
+                        <Icon
+                            name="navigate-before"
+                            size={25}
+                            color="white"
+                        />
+                    }
+                    iconLeft
+                    title="Back"
+                />
+                {activeOption ? 
+                    <Button
+                        buttonStyle={styles.navButton}
+                        titleStyle={styles.navTitle}
+                        onPress={() => navigation.navigate(route, gameState)}
+                        icon={
+                            <Icon
+                                name="navigate-next"
+                                size={25}
+                                color="white"
+                            />
+                        }
+                        iconRight
+                        title="Next"
+                    />
+                    :
+                    null }
+            </View>
+        </View>
+    );
+}
+
+export default Rating;

@@ -33,25 +33,7 @@ const Time = ({navigation, route}) => {
                 options={options}
                 nextRoute={nextRoute}
                 navigation={navigation}
-            />
-
-            <View style={styles.navRow }>
-                <Button
-                    buttonStyle={styles.navButton}
-                    titleStyle={styles.navTitle}
-                    onPress= {() => navigation.goBack()}
-                    icon={
-                        <Icon
-                            name="navigate-before"
-                            size={25}
-                            color="white"
-                        />
-                    }
-                    iconLeft
-                    title="Back"
-                />
-                
-            </View>
+            />             
         </View>
     );
 }

@@ -12,13 +12,16 @@ const Player = ({ navigation }) => {
         Inter_400Regular,
     });
 
-    if (!fontsLoaded) {
-        return <AppLoading />;
-    }
+    const [ activeOption, setActiveOption ] = useState()
     const gameParams = {};
     const options = ['1','2','3','4','5','6','7','8','9+'];
     const nextRoute = "Time";
     const currentPage = "Players";
+
+    if (!fontsLoaded) {
+        return <AppLoading />;
+    }
+    
     return (
         <View style={styles.container}>
             <Text style={styles.content}>
@@ -33,25 +36,6 @@ const Player = ({ navigation }) => {
                 nextRoute={nextRoute}
                 navigation={navigation}
             />
-
-            <View style={styles.navRow }>
-                <Button
-                    buttonStyle={styles.navButton}
-                    titleStyle={styles.navTitle}
-                    onPress= {() => navigation.goBack()}
-                    icon={
-                        <Icon
-                            name="navigate-before"
-                            size={25}
-                            color="white"
-                        />
-                    }
-                    iconLeft
-                    title="Back"
-                />
-                
-            </View>
-            
         </View>
     );
 }
@@ -85,14 +69,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         
     },
-
-    navRow: {
-        marginTop: 30,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    },
-
     buttonStyle: {
         width: 80,
         height: 80,
