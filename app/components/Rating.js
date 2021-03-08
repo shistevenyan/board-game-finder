@@ -113,7 +113,11 @@ const Rating = ({ navigation, route }) => {
                     fontSize: 25,
                     
                 }}>
-                    1
+                    <Icon
+                        name="star"
+                        size={25}
+                        color="#FF6767"
+                    />
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -133,7 +137,16 @@ const Rating = ({ navigation, route }) => {
                     fontSize: 25,
                     
                 }}>
-                    2
+                    <Icon
+                        name="star"
+                        size={25}
+                        color="#FF6767"
+                    />                    
+                    <Icon
+                    name="star"
+                    size={25}
+                    color="#FF6767"
+                    />
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -153,7 +166,21 @@ const Rating = ({ navigation, route }) => {
                     fontSize: 25,
                     
                 }}>
-                    3
+                    <Icon
+                        name="star"
+                        size={25}
+                        color="#FF6767"
+                    />                    
+                    <Icon
+                        name="star"
+                        size={25}
+                        color="#FF6767"
+                    />
+                    <Icon
+                        name="star"
+                        size={25}
+                        color="#FF6767"
+                    />
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -173,7 +200,26 @@ const Rating = ({ navigation, route }) => {
                     fontSize: 25,
                     
                 }}>
-                    4
+                    <Icon
+                        name="star"
+                        size={25}
+                        color="#FF6767"
+                    />                    
+                    <Icon
+                        name="star"
+                        size={25}
+                        color="#FF6767"
+                    />
+                    <Icon
+                        name="star"
+                        size={25}
+                        color="#FF6767"
+                    />                    
+                    <Icon
+                        name="star"
+                        size={25}
+                        color="#FF6767"
+                    />
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -191,9 +237,32 @@ const Rating = ({ navigation, route }) => {
                     alignContent: 'center',
                     borderColor: "#FF6767",
                     fontSize: 25,
-                    
                 }}>
-                    5
+                    <Icon
+                        name="star"
+                        size={25}
+                        color="#FF6767"
+                    />                    
+                    <Icon
+                        name="star"
+                        size={25}
+                        color="#FF6767"
+                    />
+                    <Icon
+                        name="star"
+                        size={25}
+                        color="#FF6767"
+                    />                    
+                    <Icon
+                        name="star"
+                        size={25}
+                        color="#FF6767"
+                    />
+                    <Icon
+                        name="star"
+                        size={25}
+                        color="#FF6767"
+                    />
                 </Text>
             </TouchableOpacity>
             <View style={styles.navRow }>
