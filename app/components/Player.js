@@ -23,12 +23,13 @@ const Player = ({ navigation }) => {
     }
     
     return (
-        <View style={styles.container}>
-            <Text style={styles.content}>
-                How many <Text style = {{ fontStyle: 'italic' }}>Players</Text> do you have?
-            </Text>
-            <Image source={PeopleLogo} style={styles.logo} />
-
+        <View style={styles.root}>
+            <View style={styles.container}>
+                <Text style={styles.content}>
+                    How many <Text style = {{ fontStyle: 'italic' }}>Players</Text> do you have?
+                </Text>
+                <Image source={PeopleLogo} style={styles.logo} />
+            </View>
             <Buttons
                 gameParams={gameParams}
                 currentPage={currentPage}
@@ -44,6 +45,12 @@ export default Player;
 
 const styles = StyleSheet.create({
     container: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    root: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',

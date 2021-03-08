@@ -5,81 +5,12 @@ import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
-    content: {
-        color: "#FF6767",
-        fontSize: 25,
-        width: 300,
-        textAlign: 'center',
-        fontFamily: "Inter_400Regular",
-    },
-
-    logo: {
-        marginBottom: 20,
-    },
-
-    buttonRow: {
-        marginBottom: 30,
-        flexDirection: 'row',
-        color: '#fff',
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
-
-    },
-
-    navRow: {
-        marginTop: 30,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    },
-
-    buttonStyle: {
-        width: 80,
-        height: 80,
-        marginLeft: 15,
-        marginRight: 15,
-        backgroundColor: '#fff',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderColor: "#FF6767",
-        borderWidth: 2,
-    },
-
-    titleStyle: {
-        fontFamily: "Inter_400Regular",
-        color: "#FF6767",
-        fontSize: 25,
-    },
-
-    navButton: {
-        backgroundColor: "#FF6767",
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: 55,
-        marginRight: 55,
-        borderRadius: 60,
-        width: 100,
-        height: 45,
-    },
-
-    navTitle: {
-        fontFamily: "Inter_400Regular",
-    },
-});
 const Rating = ({ navigation, route }) => {
     const [fontsLoaded] = useFonts({
         Inter_400Regular,
     });
     let gameParams = route;
     const currentPage = "Rating";
-    const nextRoute = "Results";
     const [ activeOption, setActiveOption ] = useState()
 
     const updateActiveOption = (option) => {
@@ -92,15 +23,196 @@ const Rating = ({ navigation, route }) => {
     }
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.content}>
-                Minimum <Text style={{ fontStyle: 'italic' }}>Rating</Text> of the board game?
-            </Text>
-            <TouchableOpacity
+        <View style={styles.root}>
+            <View style={styles.container}>
+                <Text style={styles.content}>
+                    Minimum <Text style={{ fontStyle: 'italic' }}>Rating</Text> of the board game?
+                </Text>
+            </View>
+            <View>
+
+            <View style={styles.ButtonContainer} >
+                <TouchableOpacity
+                onPress={updateActiveOption}>
+                    <Text
+                    style={{
+                        width: 200,
+                        height: 80,
+                        paddingTop: 20,
+                        marginRight: 20,
+                        marginLeft: 20,
+                        marginTop: 20,
+                        borderWidth: 1,
+                        textAlign: 'center',
+                        alignContent: 'center',
+                        borderColor: "#FF6767",
+                        fontSize: 25,
+                        
+                    }}>
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />                    
+                        <Icon
+                            name="star-half"
+                            size={25}
+                            color="#FF6767"
+                        />
+                        <Icon
+                            name="star-outline"
+                            size={25}
+                            color="#FF6767"
+                        />                    
+                        <Icon
+                            name="star-outline"
+                            size={25}
+                            color="#FF6767"
+                        />
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                onPress={updateActiveOption}>
+                    <Text
+                    style={{
+                        width: 200,
+                        height: 80,
+                        paddingTop: 20,
+                        marginRight: 20,
+                        marginLeft: 20,
+                        marginTop: 20,
+                        borderWidth: 1,
+                        textAlign: 'center',
+                        alignContent: 'center',
+                        borderColor: "#FF6767",
+                        fontSize: 25,
+                        
+                    }}>
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />                    
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />
+                        <Icon
+                            name="star-outline"
+                            size={25}
+                            color="#FF6767"
+                        />                    
+                        <Icon
+                            name="star-outline"
+                            size={25}
+                            color="#FF6767"
+                        />
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                onPress={updateActiveOption}>
+                    <Text
+                    style={{
+                        width: 200,
+                        height: 80,
+                        paddingTop: 20,
+                        marginRight: 20,
+                        marginLeft: 20,
+                        marginTop: 20,
+                        borderWidth: 1,
+                        textAlign: 'center',
+                        alignContent: 'center',
+                        borderColor: "#FF6767",
+                        fontSize: 25,
+                        
+                    }}>
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />                    
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />
+                        <Icon
+                            name="star-half"
+                            size={25}
+                            color="#FF6767"
+                        />                   
+                        <Icon
+                            name="star-outline"
+                            size={25}
+                            color="#FF6767"
+                        />
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                onPress={updateActiveOption}>
+                    <Text
+                    style={{
+                        width: 200,
+                        height: 80,
+                        paddingTop: 20,
+                        marginRight: 20,
+                        marginLeft: 20,
+                        marginTop: 20,
+                        borderWidth: 1,
+                        textAlign: 'center',
+                        alignContent: 'center',
+                        borderColor: "#FF6767",
+                        fontSize: 25,
+                        
+                    }}>
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />                    
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />                    
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />
+                        <Icon
+                            name="star-half"
+                            size={25}
+                            color="#FF6767"
+                        />
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
               onPress={updateActiveOption}>
                 <Text
                 style={{
-                    width: 75,
+                    width: 200,
                     height: 80,
                     paddingTop: 20,
                     marginRight: 20,
@@ -111,132 +223,6 @@ const Rating = ({ navigation, route }) => {
                     alignContent: 'center',
                     borderColor: "#FF6767",
                     fontSize: 25,
-                    
-                }}>
-                    <Icon
-                        name="star"
-                        size={25}
-                        color="#FF6767"
-                    />
-                </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={updateActiveOption}>
-                <Text
-                style={{
-                    width: 75,
-                    height: 80,
-                    paddingTop: 20,
-                    marginRight: 20,
-                    marginLeft: 20,
-                    marginTop: 20,
-                    borderWidth: 1,
-                    textAlign: 'center',
-                    alignContent: 'center',
-                    borderColor: "#FF6767",
-                    fontSize: 25,
-                    
-                }}>
-                    <Icon
-                        name="star"
-                        size={25}
-                        color="#FF6767"
-                    />                    
-                    <Icon
-                    name="star"
-                    size={25}
-                    color="#FF6767"
-                    />
-                </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={updateActiveOption}>
-                <Text
-                style={{
-                    width: 75,
-                    height: 80,
-                    paddingTop: 20,
-                    marginRight: 20,
-                    marginLeft: 20,
-                    marginTop: 20,
-                    borderWidth: 1,
-                    textAlign: 'center',
-                    alignContent: 'center',
-                    borderColor: "#FF6767",
-                    fontSize: 25,
-                    
-                }}>
-                    <Icon
-                        name="star"
-                        size={25}
-                        color="#FF6767"
-                    />                    
-                    <Icon
-                        name="star"
-                        size={25}
-                        color="#FF6767"
-                    />
-                    <Icon
-                        name="star"
-                        size={25}
-                        color="#FF6767"
-                    />
-                </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={updateActiveOption}>
-                <Text
-                style={{
-                    width: 75,
-                    height: 80,
-                    paddingTop: 20,
-                    marginRight: 20,
-                    marginLeft: 20,
-                    marginTop: 20,
-                    borderWidth: 1,
-                    textAlign: 'center',
-                    alignContent: 'center',
-                    borderColor: "#FF6767",
-                    fontSize: 25,
-                    
-                }}>
-                    <Icon
-                        name="star"
-                        size={25}
-                        color="#FF6767"
-                    />                    
-                    <Icon
-                        name="star"
-                        size={25}
-                        color="#FF6767"
-                    />
-                    <Icon
-                        name="star"
-                        size={25}
-                        color="#FF6767"
-                    />                    
-                    <Icon
-                        name="star"
-                        size={25}
-                        color="#FF6767"
-                    />
-                </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={updateActiveOption}>
-                <Text
-                style={{
-                    width: 75,
-                    height: 80,
-                    paddingTop: 20,
-                    marginRight: 20,
-                    marginLeft: 20,
-                    marginTop: 20,
-                    borderWidth: 1,
-                    textAlign: 'center',
-                    alignContent: 'center',
-                    borderColor: "#FF6767",
-                    fontSize: 25,
                 }}>
                     <Icon
                         name="star"
@@ -265,6 +251,7 @@ const Rating = ({ navigation, route }) => {
                     />
                 </Text>
             </TouchableOpacity>
+            </View>
             <View style={styles.navRow }>
                 <Button
                     buttonStyle={styles.navButton}
@@ -284,7 +271,7 @@ const Rating = ({ navigation, route }) => {
                     <Button
                         buttonStyle={styles.navButton}
                         titleStyle={styles.navTitle}
-                        onPress={() => navigation.navigate(route, gameState)}
+                        onPress={() => navigation.navigate("Results", gameState)}
                         icon={
                             <Icon
                                 name="navigate-next"
@@ -298,8 +285,58 @@ const Rating = ({ navigation, route }) => {
                     :
                     null }
             </View>
+            </View>
         </View>
     );
 }
 
 export default Rating;
+
+const styles = StyleSheet.create({
+    container: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    root: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    content: {
+        color: "#FF6767",
+        fontSize: 25,
+        width: 300,
+        textAlign: 'center',
+        fontFamily: "Inter_400Regular",
+    },
+
+    navRow: {
+        marginTop: 30,
+        flexDirection: 'row',
+        alignContent: 'flex-start',
+        justifyContent: 'flex-start'
+    },
+
+    navButton: {
+        backgroundColor: "#FF6767",
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 55,
+        marginRight: 55,
+        borderRadius: 60,
+        width: 100,
+        height: 45,
+    },
+
+    ButtonContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+    },
+
+    navTitle: {
+        fontFamily: "Inter_400Regular",
+    },
+});
