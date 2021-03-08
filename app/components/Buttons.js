@@ -15,7 +15,8 @@ const Buttons = ({ navigation, options, nextRoute, currentPage, gameParams}) => 
     }
 
     return (
-        <View style={styles.ButtonContainer}>
+        <View>
+            <View style={styles.ButtonContainer} >
             {buttonOptions.map((option, index) => {
                 return (
                     <TouchableOpacity
@@ -44,7 +45,7 @@ const Buttons = ({ navigation, options, nextRoute, currentPage, gameParams}) => 
                     </TouchableOpacity>
                 )
             })}
-
+            </View>
             <View style={styles.navRow }>
                 <Button
                     buttonStyle={styles.navButton}
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
         marginLeft: 55,
         marginRight: 55,
         borderRadius: 60,
-        width: 100,
+        width: 90,
         height: 45,
     },
     navTitle: {
