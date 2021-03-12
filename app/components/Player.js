@@ -48,12 +48,14 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#FFF',
     },
 
     root: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#FFF',
     },
 
     content: {

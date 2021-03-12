@@ -37,7 +37,7 @@ const Rating = ({ navigation, route }) => {
                     <Text
                     style={{
                         width: 200,
-                        height: 80,
+                        height: 70,
                         paddingTop: 20,
                         marginRight: 20,
                         marginLeft: 20,
@@ -46,7 +46,6 @@ const Rating = ({ navigation, route }) => {
                         textAlign: 'center',
                         alignContent: 'center',
                         borderColor: "#FF6767",
-                        fontSize: 25,
                         
                     }}>
                         <Icon
@@ -81,7 +80,7 @@ const Rating = ({ navigation, route }) => {
                     <Text
                     style={{
                         width: 200,
-                        height: 80,
+                        height: 70,
                         paddingTop: 20,
                         marginRight: 20,
                         marginLeft: 20,
@@ -90,7 +89,6 @@ const Rating = ({ navigation, route }) => {
                         textAlign: 'center',
                         alignContent: 'center',
                         borderColor: "#FF6767",
-                        fontSize: 25,
                         
                     }}>
                         <Icon
@@ -125,7 +123,7 @@ const Rating = ({ navigation, route }) => {
                     <Text
                     style={{
                         width: 200,
-                        height: 80,
+                        height: 70,
                         paddingTop: 20,
                         marginRight: 20,
                         marginLeft: 20,
@@ -134,7 +132,6 @@ const Rating = ({ navigation, route }) => {
                         textAlign: 'center',
                         alignContent: 'center',
                         borderColor: "#FF6767",
-                        fontSize: 25,
                         
                     }}>
                         <Icon
@@ -169,7 +166,7 @@ const Rating = ({ navigation, route }) => {
                     <Text
                     style={{
                         width: 200,
-                        height: 80,
+                        height: 70,
                         paddingTop: 20,
                         marginRight: 20,
                         marginLeft: 20,
@@ -178,7 +175,6 @@ const Rating = ({ navigation, route }) => {
                         textAlign: 'center',
                         alignContent: 'center',
                         borderColor: "#FF6767",
-                        fontSize: 25,
                         
                     }}>
                         <Icon
@@ -213,7 +209,7 @@ const Rating = ({ navigation, route }) => {
                 <Text
                 style={{
                     width: 200,
-                    height: 80,
+                    height: 70,
                     paddingTop: 20,
                     marginRight: 20,
                     marginLeft: 20,
@@ -222,7 +218,6 @@ const Rating = ({ navigation, route }) => {
                     textAlign: 'center',
                     alignContent: 'center',
                     borderColor: "#FF6767",
-                    fontSize: 25,
                 }}>
                     <Icon
                         name="star"
@@ -296,12 +291,14 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
+        
     },
 
     root: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#FFF',
     },
 
     content: {

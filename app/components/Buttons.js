@@ -20,23 +20,21 @@ const Buttons = ({ navigation, options, nextRoute, currentPage, gameParams}) => 
             {buttonOptions.map((option, index) => {
                 return (
                     <TouchableOpacity
-                      style={{ backgroundColor: activeOption === option ? "#FF6767" : 'white'}}
+                        style={{ backgroundColor: activeOption === option ? "#FF6767" : 'white', margin: 15}}
                       key={index}
                       onPress={() => updateActiveOption(option)}
                     >
                         <Text
                         style={{
-                            width: 75,
-                            height: 80,
-                            paddingTop: 20,
-                            marginRight: 20,
-                            marginLeft: 20,
-                            marginTop: 20,
+                            width: 90,
+                            height: 90,
+                            paddingTop: 27,
                             borderWidth: 1,
                             textAlign: 'center',
                             alignContent: 'center',
                             borderColor: "#FF6767",
                             fontSize: 25,
+                            fontFamily: "Inter_400Regular",
                             color: activeOption === option ? 'white' : "#FF6767",
                             
                         }}>
