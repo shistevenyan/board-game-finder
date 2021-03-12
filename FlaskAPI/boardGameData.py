@@ -27,11 +27,15 @@ def get_boardgames(game_params):
             playtime = str(game['min_playtime']) + "-" + str(game['max_playtime'])
 
         rating = round_rating(game['average_user_rating'])
+        image_url = game['images']['small']
+        game_url = game['url']
 
         results[game['name']] = {
             'players': players,
             'playtime': playtime,
-            'rating': rating
+            'rating': rating,
+            'image': image_url,
+            'url': game_url
             }
     return results
 
@@ -49,3 +53,4 @@ def round_rating(number):
 
     return round(number * 2) / 2
 
+print(get_boardgames({'max_players': '6', 'max_playtime': '46', 'min_rating': '3'}))
