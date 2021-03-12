@@ -91,12 +91,12 @@ const styles = StyleSheet.create({
     },
     navButton: {
         backgroundColor: "#FF6767",
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-        marginLeft: 55,
-        marginRight: 55,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 45,
+        marginRight: 45,
         borderRadius: 60,
-        width: 90,
+        width: 100,
         height: 45,
     },
     navTitle: {
