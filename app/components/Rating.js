@@ -33,7 +33,7 @@ const Rating = ({ navigation, route }) => {
 
             <View style={styles.ButtonContainer} >
                 <TouchableOpacity
-                onPress={updateActiveOption}>
+                    onPress={() => updateActiveOption(2.5)}>
                     <Text
                     style={{
                         width: 200,
@@ -42,7 +42,7 @@ const Rating = ({ navigation, route }) => {
                         marginRight: 20,
                         marginLeft: 20,
                         marginTop: 20,
-                        borderWidth: 1,
+                        borderWidth: activeOption === 2.5 ? 3 : 1,
                         textAlign: 'center',
                         alignContent: 'center',
                         borderColor: "#FF6767",
@@ -76,7 +76,7 @@ const Rating = ({ navigation, route }) => {
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                onPress={updateActiveOption}>
+                    onPress={() => updateActiveOption(3.0)}>
                     <Text
                     style={{
                         width: 200,
@@ -85,7 +85,7 @@ const Rating = ({ navigation, route }) => {
                         marginRight: 20,
                         marginLeft: 20,
                         marginTop: 20,
-                        borderWidth: 1,
+                        borderWidth: activeOption === 3.0 ? 3 : 1,
                         textAlign: 'center',
                         alignContent: 'center',
                         borderColor: "#FF6767",
@@ -119,7 +119,7 @@ const Rating = ({ navigation, route }) => {
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                onPress={updateActiveOption}>
+                    onPress={() => updateActiveOption(3.5)}>
                     <Text
                     style={{
                         width: 200,
@@ -128,7 +128,7 @@ const Rating = ({ navigation, route }) => {
                         marginRight: 20,
                         marginLeft: 20,
                         marginTop: 20,
-                        borderWidth: 1,
+                        borderWidth: activeOption === 3.5 ? 3 : 1,
                         textAlign: 'center',
                         alignContent: 'center',
                         borderColor: "#FF6767",
@@ -162,7 +162,7 @@ const Rating = ({ navigation, route }) => {
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                onPress={updateActiveOption}>
+                    onPress={() => updateActiveOption(4.0)}>
                     <Text
                     style={{
                         width: 200,
@@ -171,11 +171,53 @@ const Rating = ({ navigation, route }) => {
                         marginRight: 20,
                         marginLeft: 20,
                         marginTop: 20,
-                        borderWidth: 1,
+                        borderWidth: activeOption === 4.0 ? 3 : 1,
                         textAlign: 'center',
                         alignContent: 'center',
                         borderColor: "#FF6767",
                         
+                    }}>
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />                    
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />                    
+                        <Icon
+                            name="star"
+                            size={25}
+                            color="#FF6767"
+                        />
+                        <Icon
+                            name="star-outline"
+                            size={25}
+                            color="#FF6767"
+                        />
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => updateActiveOption(4.5)}>
+                    <Text
+                    style={{
+                        width: 200,
+                        height: 70,
+                        paddingTop: 20,
+                        marginRight: 20,
+                        marginLeft: 20,
+                        marginTop: 20,
+                        borderWidth: activeOption === 4.5 ? 3 : 1,
+                        textAlign: 'center',
+                        alignContent: 'center',
+                        borderColor: "#FF6767",
                     }}>
                         <Icon
                             name="star"
@@ -204,49 +246,8 @@ const Rating = ({ navigation, route }) => {
                         />
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-              onPress={updateActiveOption}>
-                <Text
-                style={{
-                    width: 200,
-                    height: 70,
-                    paddingTop: 20,
-                    marginRight: 20,
-                    marginLeft: 20,
-                    marginTop: 20,
-                    borderWidth: 1,
-                    textAlign: 'center',
-                    alignContent: 'center',
-                    borderColor: "#FF6767",
-                }}>
-                    <Icon
-                        name="star"
-                        size={25}
-                        color="#FF6767"
-                    />                    
-                    <Icon
-                        name="star"
-                        size={25}
-                        color="#FF6767"
-                    />
-                    <Icon
-                        name="star"
-                        size={25}
-                        color="#FF6767"
-                    />                    
-                    <Icon
-                        name="star"
-                        size={25}
-                        color="#FF6767"
-                    />
-                    <Icon
-                        name="star"
-                        size={25}
-                        color="#FF6767"
-                    />
-                </Text>
-            </TouchableOpacity>
             </View>
+            
             <View style={styles.navRow }>
                 <Button
                     buttonStyle={styles.navButton}
