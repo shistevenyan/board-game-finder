@@ -267,7 +267,7 @@ const Rating = ({ navigation, route }) => {
                     <Button
                         buttonStyle={styles.navButton}
                         titleStyle={styles.navTitle}
-                        onPress={() => navigation.navigate("Results", gameState)}
+                        onPress={() => navigation.navigate("Results", gameParams)}
                         icon={
                             <Icon
                                 name="navigate-next"

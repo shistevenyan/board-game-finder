@@ -53,4 +53,4 @@ def round_rating(number):
 
     return round(number * 2) / 2
 
-print(get_boardgames({'max_players': '6', 'max_playtime': '46', 'min_rating': '3'}))
+print(get_boardgames({'max_players': '10', 'max_playtime': '15', 'min_rating': '4.5'}))

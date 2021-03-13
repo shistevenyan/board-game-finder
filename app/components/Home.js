@@ -36,7 +36,7 @@ const Home = ({ navigation }) => {
                 icon={
                     <Icon
                         name="navigate-next"
-                        size={40}
+                        size={30}
                         color="white"
                     />
                 }
@@ -77,10 +77,12 @@ const styles = StyleSheet.create({
         borderRadius: 60,
         width: 200,
         height: 55,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     buttonTitle: {
         fontFamily: "Inter_400Regular",
-    }
+    },
 
 })

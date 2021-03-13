@@ -11,8 +11,7 @@ const Player = ({ navigation }) => {
     let [fontsLoaded] = useFonts({
         Inter_400Regular,
     });
-
-    const [ activeOption, setActiveOption ] = useState()
+    
     const gameParams = {};
     const options = ['1','2','3','4','5','6','7','8','9+'];
     const nextRoute = "Time";
