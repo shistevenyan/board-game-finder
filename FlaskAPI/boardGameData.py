@@ -2,12 +2,12 @@ import requests
 
 def get_boardgames(game_params):
     max_players = game_params['max_players']
-    max_playtime = game_params['max_playtime']
-    min_rating = game_params['min_rating']
+    max_playtime = int(game_params['max_playtime']) + 1
+    min_rating = float(game_params['min_rating']) - 0.01
 
-    atlasURL = 'https://api.boardgameatlas.com/api/search?player_counts=' + max_players + \
-        '&lt_max_playtime=' + max_playtime + \
-        '&gt_average_user_rating=' + min_rating + '&client_id=Q0gY3mITdP'
+    atlasURL = 'https://api.boardgameatlas.com/api/search?player_counts=' + str(max_players) + \
+        '&lt_max_playtime=' + str(max_playtime) + \
+        '&gt_average_user_rating=' + str(min_rating) + '&client_id=Q0gY3mITdP'
     atlasResponse = requests.get(atlasURL)
     atlasJson = atlasResponse.json()
     
@@ -53,4 +53,4 @@ def round_rating(number):
 
     return round(number * 2) / 2
 
-print(get_boardgames({'max_players': '10', 'max_playtime': '15', 'min_rating': '4.5'}))
+print(get_boardgames({'max_players': '5', 'max_playtime': '15', 'min_rating': '2.5'}))
