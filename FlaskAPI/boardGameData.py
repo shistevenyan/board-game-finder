@@ -35,7 +35,7 @@ def get_boardgames(game_params):
             playtime = str(game['min_playtime']) + "-" + str(game['max_playtime'])
 
         rating = round_rating(game['average_user_rating'])
-        image_url = game['images']['small']
+        image_url = game['images']['medium']
         game_url = game['url']
 
         resultList.append({

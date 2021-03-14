@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "app",
-    "slug": "app",
+    "name": "Board",
+    "slug": "board",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Board is a board game finder based on Board Game Atlas' API. After the user selects some options, the app recommends board games for the user to play.",
+    "githubUrl": "https://github.com/shistevenyan/board-game-finder"
   }
 }
