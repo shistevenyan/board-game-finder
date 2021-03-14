@@ -6,6 +6,8 @@ import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
 import CarouselCards from './CarouselCards';
+import { setStatusBarBackgroundColor } from 'expo-status-bar';
+import { createIconSetFromFontello } from 'react-native-vector-icons';
 
 // Name of component
 const Results = ({ navigation, route }) => {
@@ -13,7 +15,6 @@ const Results = ({ navigation, route }) => {
     const players = `${gameParams['Players']}`;
     const time = `${gameParams['Time']}`;
     const rating = `${gameParams['Rating']}`;
-    const item = { "image": "https://d2k4q26owzy373.cloudfront.net/150x150/games/uploaded/1541176727976", "players": "3-5", "playtime": "15", "rating": 3.0, "url": "https://www.boardgameatlas.com/game/KESRgspolC/12-days" }
 
     const [gameResults, setGameResults] = useState();
     const [gameURL] = useState(`https://boardgamefinder.herokuapp.com/boardgame-result?max_players=${players}&max_playtime=${time}&min_rating=${rating}`);
@@ -27,18 +28,9 @@ const Results = ({ navigation, route }) => {
             method: 'get',
             url: gameURL
         })
-        .then((response )=> {
-            const gameArray = [];
-            let i = 0;
-            for(const gameName in response.data) {
-                i++;
-                let gameInfo = {
-                    title: gameName,
-                    id: i
-                }
-            gameArray.push(gameInfo)
-            }
-            setGameResults(gameArray)
+        .then((response)=> {
+            setGameResults(response.data.results)
+            console.log(response.data.results)
         })
     },[gameURL])
     
@@ -87,7 +79,7 @@ const styles = StyleSheet.create({
         color: "#FF6767",
         fontSize: 25,
         width: 300,
-        marginBottom: 30,
+        marginBottom: 50,
         textAlign: 'center',
         fontFamily: "Inter_400Regular",
     },
