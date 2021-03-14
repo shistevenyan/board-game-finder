@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Image, StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter';
 import { Button } from 'react-native-elements';
@@ -36,6 +36,10 @@ const Results = ({ navigation, route }) => {
             console.log(gameArray);
         })
     },[gameURL])
+    
+    if(!fontsLoaded) {
+      return <AppLoading />
+    }
     
     return (
         <View style={styles.container}>

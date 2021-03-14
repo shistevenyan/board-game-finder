@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
     },
     navRow: {
         marginTop: 30,
+        marginLeft: 15,
         flexDirection: 'row',
         alignContent: 'flex-start',
         justifyContent: 'flex-start'
