@@ -7,13 +7,20 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
 import CarouselCards from './CarouselCards';
 
-const Results = ({ navigation, route}) => {
+// Name of component
+const Results = ({ navigation, route }) => {
+    const gameParams = route.params;
+    const players = `${gameParams['Players']}`;
+    const time = `${gameParams['Time']}`;
+    const rating = `${gameParams['Rating']}`;
+    const item = { "image": "https://d2k4q26owzy373.cloudfront.net/150x150/games/uploaded/1541176727976", "players": "3-5", "playtime": "15", "rating": 3.0, "url": "https://www.boardgameatlas.com/game/KESRgspolC/12-days" }
+
     const [gameResults, setGameResults] = useState();
-    const [gameURL, setGameURL] = useState('https://boardgamefinder.herokuapp.com//boardgame-result?max_players=5&max_playtime=16&min_rating=2.5');
+    const [gameURL] = useState(`https://boardgamefinder.herokuapp.com/boardgame-result?max_players=${players}&max_playtime=${time}&min_rating=${rating}`);
+    
     let [fontsLoaded] = useFonts({
         Inter_400Regular,
     });
-    let gameParams = route.params;
 
     useEffect(()=> {
         axios({
@@ -47,6 +54,7 @@ const Results = ({ navigation, route}) => {
             <Text style={styles.cardsContainer}>
               <CarouselCards data={gameResults}/>
             </Text>
+            
             <Button
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonTitle}
@@ -79,7 +87,7 @@ const styles = StyleSheet.create({
         color: "#FF6767",
         fontSize: 25,
         width: 300,
-        marginBottom: 70,
+        marginBottom: 30,
         textAlign: 'center',
         fontFamily: "Inter_400Regular",
     },
@@ -89,7 +97,6 @@ const styles = StyleSheet.create({
         borderRadius: 60,
         width: 150,
         height: 50,
-        margin: 5,
         alignItems: 'center',
         justifyContent: 'center',
     },

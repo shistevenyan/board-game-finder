@@ -11,7 +11,7 @@ const Time = ({navigation, route}) => {
     const gameParams = route.params;
     const currentPage = "Time";
     const nextRoute = "Rating";
-    const options = ['15','30','45','60','90','120','120+'];
+    const options = ['15','30','45','60','90','120'];
     let [fontsLoaded] = useFonts({
         Inter_400Regular,
     });

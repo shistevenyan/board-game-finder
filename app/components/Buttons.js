@@ -11,7 +11,7 @@ const Buttons = ({ navigation, options, nextRoute, currentPage, gameParams}) => 
     const [activeOption, setActiveOption] = useState()
 
     const updateActiveOption = (option) => {
-        setActiveOption(option)
+        setActiveOption(option);
         gameState[currentPage] = option;
     }
 
