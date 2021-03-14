@@ -1,8 +1,16 @@
 {
+  "scripts": {
+    "start:install": "yarn install && cd app && yarn install",
+    "start:front-end": "cd app && expo start",
+    "start:back-end": "cd FlaskAPI && py app.py",
+    "start:all": "concurrently \"yarn start:front-end\" \"yarn start:back-end\""
+  },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.1.0",
     "@react-navigation/native": "^5.9.3",
     "@react-navigation/stack": "^5.14.3",
+    "axios": "^0.21.1",
+    "concurrently": "^6.0.0",
     "expo": "^40.0.1",
     "expo-app-loading": "^1.0.1",
     "expo-status-bar": "^1.0.3",

@@ -7,6 +7,7 @@ const Buttons = ({ navigation, options, nextRoute, currentPage, gameParams}) => 
     const buttonOptions = options;
     const route = nextRoute;
     let gameState = gameParams;
+    console.log(gameState)
     const [activeOption, setActiveOption] = useState()
 
     const updateActiveOption = (option) => {
@@ -104,6 +105,7 @@ const styles = StyleSheet.create({
     },
     navRow: {
         marginTop: 30,
+        marginLeft: 15,
         flexDirection: 'row',
         alignContent: 'flex-start',
         justifyContent: 'flex-start'

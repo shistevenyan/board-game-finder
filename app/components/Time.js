@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Buttons from './Buttons';
 
 const Time = ({navigation, route}) => {
-    const gameParams = route;
+    const gameParams = route.params;
     const currentPage = "Time";
     const nextRoute = "Rating";
     const options = ['15','30','45','60','90','120','120+'];

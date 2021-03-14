@@ -9,7 +9,7 @@ const Rating = ({ navigation, route }) => {
     const [fontsLoaded] = useFonts({
         Inter_400Regular,
     });
-    let gameParams = route;
+    let gameParams = route.params;
     const currentPage = "Rating";
     const [ activeOption, setActiveOption ] = useState()
 
@@ -312,6 +312,7 @@ const styles = StyleSheet.create({
 
     navRow: {
         marginTop: 30,
+        marginLeft: 15,
         flexDirection: 'row',
         alignContent: 'flex-start',
         justifyContent: 'flex-start'
