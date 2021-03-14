@@ -11,7 +11,8 @@ def get_boardgames(game_params):
     atlasResponse = requests.get(atlasURL)
     atlasJson = atlasResponse.json()
     
-    results = []
+    results = {}
+    resultList = []
     i = 1
     for game in atlasJson['games']:
         players = ""
@@ -37,7 +38,7 @@ def get_boardgames(game_params):
         image_url = game['images']['small']
         game_url = game['url']
 
-        results.append({
+        resultList.append({
             'id' : i,
             'title' : title,
             'players': players,
@@ -46,8 +47,10 @@ def get_boardgames(game_params):
             'image': image_url,
             'url': game_url
             })
-            
+
         i += 1
+    
+    results["results"] = resultList
 
     return results
 
