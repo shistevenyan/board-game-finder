@@ -1,58 +1,50 @@
 import React, { useState, useEffect } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View, FlatList } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
+import CarouselCards from './CarouselCards';
 
 // Name of component
-const Results = ({ navigation }) => {
-    const result_array = { 'Drink!': { 'players': '6-30', 'playtime': '30-0', 'rating': 5.0, 'image': 'https://d2k4q26owzy373.cloudfront.net/150x150/games/uploaded/1548388430793', 'url': 'https://www.boardgameatlas.com/game/VYhMo57MEf/drink'}, 'Cards Against Humanity: Vote for Hillary Pack': { 'players': '4-30', 'playtime': '30-0', 'rating': 5.0, 'image': 'https://d2k4q26owzy373.cloudfront.net/150x150/games/uploaded/1549928813030', 'url': 'https://www.boardgameatlas.com/game/wlRDiNxrjx/cards-against-humanity-vote-for-hillary-pack'}, "I Don't Know, What Do You Want To Play?": { 'players': '2-999', 'playtime': '5', 'rating': 5.0, 'image': 'https://d2k4q26owzy373.cloudfront.net/150x150/games/empty+box.jpg', 'url': 'https://www.boardgameatlas.com/game/5scKf6oQSb/i-dont-know-what-do-you-want-to-play'}, 'Fishfry Deluxe': { 'players': '2-10', 'playtime': '5',
-        'rating': 5.0, 'image': 'https://d2k4q26owzy373.cloudfront.net/150x150/games/empty+box.jpg', 'url': 'https://www.boardgameatlas.com/game/I4ZZu6xXKb/fishfry-deluxe'}, 'Offensive Adult Party Game': { 'players': '3-18', 'playtime': '1', 'rating': 5.0, 'image': 'https://d2k4q26owzy373.cloudfront.net/150x150/games/empty+box.jpg', 'url': 'https://www.boardgameatlas.com/game/uRbA1R6MHT/offensive-adult-party-game'}};
+const Results = ({ navigation, route }) => {
     const [gameResults, setGameResults] = useState();
-    const [gameURL, setGameURL] = useState('http://127.0.0.1:5000/boardgame-result?max_players=5&max_playtime=16&min_rating=2.5');
+    const [gameURL] = useState('https://boardgamefinder.herokuapp.com/boardgame-result?max_players=5&max_playtime=16&min_rating=2.5');
     let [fontsLoaded] = useFonts({
         Inter_400Regular,
     });
+    let gameParams = route.params;
 
-    // Need to do a string literal to get variables
     useEffect(()=> {
         axios({
             method: 'get',
             url: gameURL
         })
-        .then((response)=> {
-            setGameResults(response);
-            console.log(response);
+        .then((response )=> {
+            const gameArray = [];
+            let i = 0;
+            for(const gameName in response.data) {
+                i++;
+                let gameInfo = {
+                    title: gameName,
+                    id: i
+                }
+            gameArray.push(gameInfo)
+            }
+            setGameResults(gameArray)
+            console.log(gameArray);
         })
     },[gameURL])
     
-    if (!fontsLoaded) {
-        return <AppLoading />;
-    }
-
     return (
         <View style={styles.container}>
             <Text style={styles.content}>
                 Our Recommendations
             </Text>
-            
-            <Button
-                buttonStyle={styles.button}
-                titleStyle={styles.buttonTitle}
-                // onPress={() => navigation.navigate('')}
-                icon={
-                    <Icon
-                        name="navigate-next"
-                        size={25}
-                        color="white"
-                    />
-                }
-                iconRight
-                title="See More"
-            />
-
+            <Text style={styles.cardsContainer}>
+              <CarouselCards data={gameResults}/>
+            </Text>
             <Button
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonTitle}
@@ -103,6 +95,10 @@ const styles = StyleSheet.create({
     buttonTitle: {
         fontSize: 15,
         fontFamily: "Inter_400Regular",
+    },
+    cardsContainer: {
+      marginLeft: -40,
+      marginBottom: 50,
     },
 
 });

@@ -9,7 +9,7 @@ const Rating = ({ navigation, route }) => {
     const [fontsLoaded] = useFonts({
         Inter_400Regular,
     });
-    let gameParams = route;
+    let gameParams = route.params;
     const currentPage = "Rating";
     const [ activeOption, setActiveOption ] = useState()
 
