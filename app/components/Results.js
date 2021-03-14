@@ -30,7 +30,6 @@ const Results = ({ navigation, route }) => {
         })
         .then((response)=> {
             setGameResults(response.data.results)
-            console.log(response.data.results)
         })
     },[gameURL])
     
