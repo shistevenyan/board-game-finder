@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import axios from 'axios';
+import CarouselCards from './CarouselCards';
 
-// Name of component
-const Results = ({ navigation }) => {
+const Results = ({ navigation, route}) => {
     const [gameResults, setGameResults] = useState();
     const [gameURL, setGameURL] = useState('https://boardgamefinder.herokuapp.com//boardgame-result?max_players=5&max_playtime=16&min_rating=2.5');
     let [fontsLoaded] = useFonts({
@@ -32,7 +32,6 @@ const Results = ({ navigation }) => {
             gameArray.push(gameInfo)
             }
             setGameResults(gameArray)
-            console.log(gameArray);
         })
     },[gameURL])
     
