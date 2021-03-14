@@ -11,17 +11,24 @@ def get_boardgames(game_params):
     atlasResponse = requests.get(atlasURL)
     atlasJson = atlasResponse.json()
     
-    results = {}
+    results = []
+    i = 1
     for game in atlasJson['games']:
         players = ""
         playtime = ""
         rating = 0.0
+        title = game['name']
+
         if game['min_players'] == game['max_players']:
+            players = str(game['min_players'])
+        elif game['min_players'] > game['max_players']:
             players = str(game['min_players'])
         else:
             players = str(game['min_players']) + "-" + str(game['max_players'])
 
         if game['min_playtime'] == game['max_playtime']:
+            playtime = str(game['min_playtime'])
+        elif game['min_playtime'] > game['max_playtime']:
             playtime = str(game['min_playtime'])
         else:
             playtime = str(game['min_playtime']) + "-" + str(game['max_playtime'])
@@ -30,13 +37,18 @@ def get_boardgames(game_params):
         image_url = game['images']['small']
         game_url = game['url']
 
-        results[game['name']] = {
+        results.append({
+            'id' : i,
+            'title' : title,
             'players': players,
             'playtime': playtime,
             'rating': rating,
             'image': image_url,
             'url': game_url
-            }
+            })
+            
+        i += 1
+
     return results
 
 
